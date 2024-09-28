@@ -1,0 +1,23 @@
+{
+  "name": "shellhacks-2024",
+  "version": "1.0.0",
+  "description": "ShellHacks 2024!",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micpatmc/shellhacks-2024.git"
+  },
+  "author": "Christian Durant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micpatmc/shellhacks-2024/issues"
+  },
+  "homepage": "https://github.com/micpatmc/shellhacks-2024#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.65.0"
+  }
+}
