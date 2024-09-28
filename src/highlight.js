@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.classList.remove("bg-green-500");
       button.classList.remove("bg-yellow-500");
       button.classList.remove("bg-red-500");
+      button.classList.remove("bg-blue-500");
       button.classList.add("bg-slate-400");
     });
 
@@ -27,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
         clickedButton.classList.add("bg-red-500");
         break;
       case "spanish":
-        clickedButton.classList.add("bg-green-500");
+        clickedButton.classList.add("bg-blue-500");
         break;
       case "french":
-        clickedButton.classList.add("bg-yellow-500");
+        clickedButton.classList.add("bg-blue-500");
         break;
     }
   }
