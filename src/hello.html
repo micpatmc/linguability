@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linguability</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="p-5">
+      <div class="flex justify-center mb-2">
+        <h1 class="text-3xl">Linguability</h1>
+      </div>
+      <div class="flex justify-center mb-10">
+        <p class="text-lg">
+          Welcome to Linguability! Please select your language and experience
+          level.
+        </p>
+      </div>
+      <h2 class="text-xl mb-2">Language</h2>
+      <div class="relative mb-10">
+        <div class="flex space-x-4 px-6 py-2 bg-green-500 rounded-lg">
+          <button
+            class="z-10 px-4 py-2 text-black"
+            onclick="moveIndicator('beginner')"
+            id="beginner"
+          >
+            Spanish
+          </button>
+
+          <button
+            class="relative z-10 px-4 py-2 text-black"
+            onclick="moveIndicator('intermediate')"
+            id="intermediate"
+          >
+            French
+          </button>
+        </div>
+      </div>
+      <h2 class="text-xl mb-2">Experience Level</h2>
+      <div class="relative mb-10">
+        <div class="flex space-x-4 px-6 py-2 bg-green-500 rounded-lg">
+          <button
+            class="relative z-10 px-4 py-2 text-black"
+            onclick="moveIndicator('beginner')"
+            id="beginner"
+          >
+            Beginner
+          </button>
+
+          <button
+            class="relative z-10 px-4 py-2 text-black"
+            onclick="moveIndicator('intermediate')"
+            id="intermediate"
+          >
+            Intermediate
+          </button>
+
+          <button
+            class="relative z-10 px-4 py-2 text-black"
+            onclick="moveIndicator('expert')"
+            id="expert"
+          >
+            Expert
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

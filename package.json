@@ -18,5 +18,8 @@
   "homepage": "https://github.com/micpatmc/shellhacks-2024#readme",
   "dependencies": {
     "openai": "^4.65.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }
