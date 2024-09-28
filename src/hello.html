@@ -8,77 +8,82 @@
     <script src="../popup.js"></script>
   </head>
   <body class="bg-gray-700">
+    <script src="./highlight.js"></script>
     <div class="p-3">
       <div class="flex items-center justify-center text-center mb-2">
-        <h1 class="text-3xl font-extrabold text-gray-400">LINGUABILITY</h1>
+        <h1 class="text-3xl font-extrabold text-blue-400">LINGUABILITY</h1>
       </div>
 
       <div class="flex items-center justify-center mb-10">
-        <p class="text-lg text-center">
-          Welcome to Linguability! Please select your language and experience level.
+        <p class="text-lg text-center text-gray-400">
+          Welcome to Linguability! Please select your language and experience
+          level.
         </p>
       </div>
-      <div className="flex flex-col">
-        <div className="flex items-center justify-center">
-          <h2 class="text-xl mb-2">Language</h2>
+      <div>
+        <div>
+          <h2 class="text-xl mb-2 text-gray-400">Language</h2>
           <div class="flex mb-5 h-10 w-full">
             <div class="flex bg-slate-400 rounded-lg w-full justify-between">
               <button
-                class="z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
-                onclick="moveIndicator('beginner')"
-                id="Spanish"
+                class="button z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
+                id="spanish"
+                data-group="language"
               >
                 Spanish
               </button>
 
               <button
-                class="z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
-                onclick="moveIndicator('intermediate')"
-                id="French"
+                class="button z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
+                id="french"
+                data-group="language"
               >
                 French
               </button>
             </div>
           </div>
         </div>
-        <h2 class="text-xl mb-2">Experience</h2>
+        <h2 class="text-xl mb-2 text-gray-400">Experience</h2>
         <div class="flex relative mb-10 h-10">
           <div class="flex bg-slate-400 rounded-lg">
             <button
-              class="z-10 px-4 py-2 m-0.5 text-black rounded-lg hover:bg-green-400"
-              onclick="moveIndicator('beginner')"
+              class="button z-10 px-4 py-2 m-0.5 text-black rounded-lg hover:bg-green-400"
               id="beginner"
+              data-group="experience"
             >
               Beginner
             </button>
 
             <button
-              class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
-              onclick="moveIndicator('intermediate')"
+              class="button z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-yellow-400"
               id="intermediate"
+              data-group="experience"
             >
               Intermediate
             </button>
 
             <button
-              class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
-              onclick="moveIndicator('intermediate')"
+              class="button z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-red-400"
               id="advanced"
+              data-group="experience"
             >
               Advanced
             </button>
           </div>
         </div>
       </div>
-      <div class="flex w-full rounded-lg justify-center mb-10 bg-slate-400 hover:bg-green-500">
+      <div
+        class="flex w-full rounded-lg justify-center mb-10 bg-slate-400 hover:bg-green-500"
+      >
         <button
           class="relative z-10 px-4 py-2 text-black rounded-lg"
-          onclick="moveIndicator('intermediate')"
-          id="intermediate"
+          id="getStarted"
         >
           Get Started!
         </button>
       </div>
     </div>
+    <script src="highlight.js"></script>
+    <script src="../content.js"></script>
   </body>
 </html>
