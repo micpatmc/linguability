@@ -6,10 +6,10 @@
     <title>Linguability</title>
     <link href="./output.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="p-5">
+  <body class="bg-gray-700">
+    <div class="p-3">
       <div class="flex justify-center mb-2">
-        <h1 class="text-3xl">Linguability</h1>
+        <h1 class="text-3xl font-extrabold text-gray-400">LINGUABILITY</h1>
       </div>
       <div class="flex justify-center mb-10">
         <p class="text-lg">
@@ -18,30 +18,30 @@
         </p>
       </div>
       <h2 class="text-xl mb-2">Language</h2>
-      <div class="relative mb-10">
-        <div class="flex space-x-4 px-6 py-2 bg-green-500 rounded-lg">
+      <div class="flex relative mb-5">
+        <div class="flex bg-green-500 rounded-lg">
           <button
-            class="z-10 px-4 py-2 text-black"
+            class="z-10 px-4 py-1 m-0.5 text-black rounded-lg hover:bg-green-400"
             onclick="moveIndicator('beginner')"
-            id="beginner"
+            id="Spanish"
           >
             Spanish
           </button>
 
           <button
-            class="relative z-10 px-4 py-2 text-black"
+            class="z-10 px-4 py-1 m-0.5 ext-black rounded-lg hover:bg-green-400"
             onclick="moveIndicator('intermediate')"
-            id="intermediate"
+            id="French"
           >
             French
           </button>
         </div>
       </div>
-      <h2 class="text-xl mb-2">Experience Level</h2>
-      <div class="relative mb-10">
-        <div class="flex space-x-4 px-6 py-2 bg-green-500 rounded-lg">
+      <h2 class="text-xl mb-2">Experience</h2>
+      <div class="flex relative mb-10">
+        <div class="flex bg-green-500 rounded-lg">
           <button
-            class="relative z-10 px-4 py-2 text-black"
+            class="z-10 px-4 py-2 m-0.5 text-black rounded-lg hover:bg-green-400"
             onclick="moveIndicator('beginner')"
             id="beginner"
           >
@@ -49,7 +49,7 @@
           </button>
 
           <button
-            class="relative z-10 px-4 py-2 text-black"
+            class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
             onclick="moveIndicator('intermediate')"
             id="intermediate"
           >
@@ -57,14 +57,23 @@
           </button>
 
           <button
-            class="relative z-10 px-4 py-2 text-black"
-            onclick="moveIndicator('expert')"
-            id="expert"
+            class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
+            onclick="moveIndicator('intermediate')"
+            id="advanced"
           >
-            Expert
+            Advanced
           </button>
         </div>
       </div>
+    </div>
+    <div class="flex justify-center mb-10 bg-slate-400 hover:bg-green-500">
+      <button
+        class="relative z-10 px-4 py-2 text-black rounded-lg"
+        onclick="moveIndicator('intermediate')"
+        id="intermediate"
+      >
+        Get Started!
+      </button>
     </div>
   </body>
 </html>
