@@ -5,13 +5,13 @@ function replaceElementsText(selector, newText) {
   // Select all elements matching the selector
   const elements = document.querySelectorAll(selector);
 
-  elements.forEach(element => {
+  elements.forEach((element) => {
     // Replace the entire text content of the element
     if (element.textContent.length >= LETTER_MINIMUM) {
       let tmp = "";
 
       for (let i = element.textContent.length; i >= 0; i--)
-          tmp += element.textContent[i];
+        tmp += element.textContent[i];
 
       element.textContent = tmp;
     }
@@ -20,4 +20,4 @@ function replaceElementsText(selector, newText) {
 
 // New word or phrase to replace existing text with
 const newText = "Your New Phrase Here";
-replaceElementsText('p', newText);
+replaceElementsText("p", newText);
