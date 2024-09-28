@@ -21,6 +21,11 @@
     "openai": "^4.65.0"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.13"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.2.1",
+    "tailwindcss": "^3.4.13",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }
