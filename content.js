@@ -6,14 +6,13 @@ const translateParagraph = async (paragraphObj) => {
   const sentences = splitParagraph(paragraphObj);
   const query = prepareQuery(sentences, "N/A");
 
-  // Call OpenAI API using fetch (no need for linguist.js)
-  const apiKey = "Place API key here.";
+  const apiKey = "Place key here"; 
 
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`, // Set your API key in the Authorization header
+      "Authorization": `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
