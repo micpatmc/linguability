@@ -4,61 +4,50 @@ const LETTER_MINIMUM = 200;
 const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
   const sentences = splitParagraph(paragraphObj);
-  const query = prepareQuery(sentences, "N/A");
+  //const query = prepareQuery(sentences, "N/A");
+  //console.log(query);
 
-  const apiKey = "Place key here"; 
+  const apiKey = "Your api key here";
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are an expert linguistic teacher. Your task is to help others learn languages by changing sentences in text into a target language.",
-        },
-        {
-          role: "user",
-          content:
-            "You are an expert linguistic teacher. Your task is to help others learn languages by translating sentences into a target language.",
-        },
-        {
-          role: "assistant",
-          content:
-            "Great! I'm ready to assist with translations and language learning tasks. Feel free to provide any sentence or text you'd like translated into a target language. Let me know which language you're targeting, and we can get started!",
-        },
-        {
-          role: "user",
-          content:
-            "The input will always follow the following format: Language: <target-language> [index-number]. <first-sentence> [index-number]. <second-sentence> ...",
-        },
-        {
-          role: "assistant",
-          content:
-            "Got it! Please provide the target language and sentences you'd like translated, and I'll handle it from there.",
-        },
-        {
-          role: "user",
-          content: `Language: Spanish ${query}`, // Adjust target language and query dynamically
-        }
-      ]
-    }),
-  });
+  let model_output = [];
+  for (const sentence of sentences) {
+    const chanceToTranslate = Math.random() * 3;
 
-  const data = await response.json();
-  const model_output = data.choices[0].message.content;
+    if (chanceToTranslate < 2) {
+      model_output.push(sentence);
+      continue;
+    }
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are an expert linguistic teacher. Your task is to help others learn languages by changing sentences in text into a target language.",
+          },
+          {
+            role: "user",
+            content: `Rewrite the following sentence in Spanish: ${sentence}`,
+          },
+        ],
+      }),
+    });
 
+    const data = await response.json();
+    model_output.push(data.choices[0].message.content);
+  }
   // Process model output
-  const translated_sentences = processModelOutput(model_output);
-  console.log(translated_sentences);
+  // const translated_sentences = processModelOutput(model_output);
+  // console.log(translated_sentences);
 
-  const output_sentences = insertTranslatedSentences(sentences, translated_sentences);
-  const output_paragraph = reconstructParagraph(output_sentences);
+  // const output_sentences = insertTranslatedSentences(sentences, translated_sentences);
+  const output_paragraph = reconstructParagraph(model_output);
 
   return output_paragraph;
 };

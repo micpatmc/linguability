@@ -43,7 +43,7 @@ async function getCompletion(language, sentences) {
       },
       {
         role: "user",
-        content: `Language:${language} ${sentences}`,
+        content: `Language: Spanish ${sentences}`,
       },
     ],
     model: "gpt-3.5-turbo",
