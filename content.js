@@ -10,11 +10,24 @@ const translateParagraph = async (paragraphObj) => {
 
   let model_output = [];
   for (const sentence of sentences) {
-    const chanceToTranslate = Math.random() * 3;
+    const chanceToTranslate = Math.random() * 7;
+    const difficulty = paragraphObj.difficulty;
 
-    if (chanceToTranslate < 2) {
-      model_output.push(sentence);
-      continue;
+    if (difficulty === "beginner") {
+      if (chanceToTranslate < 6) {
+        model_output.push(sentence);
+        continue;
+      }
+    } else if (difficulty === "intermediate") {
+      if (chanceToTranslate < 4) {
+        model_output.push(sentence);
+        continue;
+      }
+    } else if (difficulty === "advanced") {
+      if (chanceToTranslate < 2) {
+        model_output.push(sentence);
+        continue;
+      }
     }
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -32,7 +45,7 @@ const translateParagraph = async (paragraphObj) => {
           },
           {
             role: "user",
-            content: `Rewrite the following sentence in Spanish: ${sentence}`,
+            content: `Rewrite the following sentence in ${paragraphObj.language}: ${sentence}`,
           },
         ],
       }),
