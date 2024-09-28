@@ -1,16 +1,26 @@
-// Function to replace text in text nodes only
-function replaceText(node, newText) {
-  if (node.nodeType === Node.TEXT_NODE) {
-    if (node.nodeValue.trim() !== '') {
-      node.nodeValue = newText;
+const WORD_MINIMUM = 20;
+
+// Function to replace the text content of specific elements
+function replaceElementsText(selector, newText) {
+  // Select all elements matching the selector
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach(element => {
+    // Replace the entire text content of the element
+    if (element.textContent.length > WORD_MINIMUM) {
+      let tmp = "";
+
+      for (let i = element.textContent.length; i >= 0; i--)
+          tmp += element.textContent[i];
+
+      element.textContent = tmp;
     }
-  } else if (node.nodeType === Node.ELEMENT_NODE) {
-    if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
-      node.childNodes.forEach(child => replaceText(child, newText));
-    }
-  }
+  });
 }
 
-// New word to replace existing text with
-const newText = "New Word";
-replaceText(document.body, newText);
+// New word or phrase to replace existing text with
+const newText = "Your New Phrase Here";
+replaceElementsText('p', newText);
+replaceElementsText('h1', newText);
+replaceElementsText('h2', newText);
+replaceElementsText('h3', newText);
