@@ -3,7 +3,7 @@ require("dotenv").config(); // load env variables
 
 const openai = new OpenAI();
 
-async function main() {
+async function getCompletion(language, sentences) {
   const completion = await openai.chat.completions.create({
     messages: [
       {
@@ -43,12 +43,16 @@ async function main() {
       },
       {
         role: "user",
-        content: "Language: French 1. My name is John. 5. What's your favorite color?",
+        content: `Language:${language} ${sentences}`,
       },
     ],
     model: "gpt-3.5-turbo",
   });
 
-  console.log(completion.choices[0].message.content);
+  //console.log(completion.choices[0].message.content);
+  return completion.choices[0].message.content;
 }
-main();
+
+module.exports = {
+  getCompletion,
+};

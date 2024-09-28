@@ -10,34 +10,35 @@ function splitParagraph(paragraphObj) {
 }
 
 const prepareQuery = (sentences, difficulty) => {
-    query = "";
-    for (let i = 0; i < sentences.length; i++)
-        query = query.concat(i, ". ", sentences[i] + (i == sentences.length-1 ? "" : " "));
-    return query;
-}
+  query = "";
+  for (let i = 0; i < sentences.length; i++)
+    query = query.concat(i, ". ", sentences[i] + (i == sentences.length - 1 ? "" : " "));
+  return query;
+};
 
 const processModelOutput = (model_output) => {
-    // Get model output sentences and their respective indices in original sentences
-    const regex = /\[(\d+)\]:\s*(.+?)(?=\[\d+\]:|$)/gs;
-    const matches = [...model_output.matchAll(regex)];
+  // Get model output sentences and their respective indices in original sentences
+  const regex = /\[(\d+)\]:\s*(.+?)(?=\[\d+\]:|$)/gs;
+  // console.log(model_output);
+  const matches = [...model_output.matchAll(regex)];
 
-    const translated_sentences = matches.map((match) => ({
-      index: parseInt(match[1], 10),
-      sentence: match[2].trim(),
-    }));
+  const translated_sentences = matches.map((match) => ({
+    index: parseInt(match[1], 10),
+    sentence: match[2].trim(),
+  }));
 
-    return translated_sentences;
-}
+  return translated_sentences;
+};
 
 const insertTranslatedSentences = (original_sentences, translated_sentences) => {
-    output_sentences = [...original_sentences];
+  output_sentences = [...original_sentences];
 
-    translated_sentences.forEach((sentence) => {
-      output_sentences[sentence.index] = sentence.sentence;
-    });
+  translated_sentences.forEach((sentence) => {
+    output_sentences[sentence.index] = sentence.sentence;
+  });
 
-    return output_sentences;
-}
+  return output_sentences;
+};
 
 const reconstructParagraph = (sentences) => {
   return sentences.join(" ");
