@@ -1,4 +1,4 @@
-const WORD_MINIMUM = 20;
+const LETTER_MINIMUM = 20;
 
 // Function to replace the text content of specific elements
 function replaceElementsText(selector, newText) {
@@ -7,7 +7,7 @@ function replaceElementsText(selector, newText) {
 
   elements.forEach(element => {
     // Replace the entire text content of the element
-    if (element.textContent.length > WORD_MINIMUM) {
+    if (element.textContent.length >= LETTER_MINIMUM) {
       let tmp = "";
 
       for (let i = element.textContent.length; i >= 0; i--)
@@ -21,6 +21,3 @@ function replaceElementsText(selector, newText) {
 // New word or phrase to replace existing text with
 const newText = "Your New Phrase Here";
 replaceElementsText('p', newText);
-replaceElementsText('h1', newText);
-replaceElementsText('h2', newText);
-replaceElementsText('h3', newText);
