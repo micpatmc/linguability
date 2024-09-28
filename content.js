@@ -4,10 +4,8 @@ const LETTER_MINIMUM = 200;
 const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
   const sentences = splitParagraph(paragraphObj);
-  //const query = prepareQuery(sentences, "N/A");
-  //console.log(query);
 
-  const apiKey = "Your api key here";
+  const apiKey = "Place API key here";
 
   let model_output = [];
   for (const sentence of sentences) {
@@ -40,15 +38,12 @@ const translateParagraph = async (paragraphObj) => {
     });
 
     const data = await response.json();
-    model_output.push(data.choices[0].message.content);
+    console.log(data);
+    const translatedSentence = data.choices[0].message.content;
+    model_output.push(`<span style="color: red;">${translatedSentence}</span>`);
   }
-  // Process model output
-  // const translated_sentences = processModelOutput(model_output);
-  // console.log(translated_sentences);
 
-  // const output_sentences = insertTranslatedSentences(sentences, translated_sentences);
   const output_paragraph = reconstructParagraph(model_output);
-
   return output_paragraph;
 };
 
@@ -61,7 +56,7 @@ async function replaceElementsText(selector) {
       const paragraphObj = { textContent: element.textContent };
       try {
         const translatedText = await translateParagraph(paragraphObj);
-        element.textContent = translatedText;
+        element.innerHTML = translatedText;
       } catch (error) {
         console.error("Translation failed:", error);
       }

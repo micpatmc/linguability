@@ -1,0 +1,156 @@
+[33mcommit 133218deca0ca080ea50d6f165a5477754b51cc4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 18:44:14 2024 -0400
+
+    Implement ability to change the text color of changed sentences
+
+[33mcommit 7ad5dd635eb9b2478f0e2b540412e01c81bc9ee6[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 17:37:12 2024 -0400
+
+    Translated sentences on webpage
+
+[33mcommit 33a4fa55058654356ddb21279af8bfe4ea465fd6[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 15:46:07 2024 -0400
+
+    Remove API key
+
+[33mcommit a8eb5643531d8c2b8cc4e0b776571132fc2adb12[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 15:44:14 2024 -0400
+
+    Place the logic for converting paragraphs to another language inside content.js
+
+[33mcommit 579310d01e5614b69930cb31cc03a9f70bc1224f[m
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 07:31:10 2024 -0400
+
+    Connected string manipulation functions to GPT
+
+[33mcommit 6b15ab34904d8ff11f427edea997651d0bfe1535[m
+Author: christiandur4nt <christian.durant88@gmail.com>
+Date:   Sat Sep 28 07:06:06 2024 -0400
+
+    Process paragraphs from DOM and prepare LLM pipeline.
+
+[33mcommit 3975ed19939792da1788a7e5418f98e44fa0d4b8[m
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 06:49:34 2024 -0400
+
+    Updated UI and tailwind imports
+
+[33mcommit 58f2b6a7a2b36db9a7b8d45409935c1e8e32c8a0[m
+Merge: 9ca6e3b ca7d4ea
+Author: AlainAmbrose <alainambrose@knights.ucf.edu>
+Date:   Sat Sep 28 06:19:28 2024 -0400
+
+    Merge branch 'main' of https://github.com/micpatmc/shellhacks-2024
+    wow
+
+[33mcommit 9ca6e3b313b4f50c4f17977e90a5899be460ac1e[m
+Author: AlainAmbrose <alainambrose@knights.ucf.edu>
+Date:   Sat Sep 28 06:19:18 2024 -0400
+
+    updated main html file
+
+[33mcommit ca7d4ea55fdbb8c43eedd3b26bd9ce60bc5c72b5[m
+Merge: 256e5cb e9caedf
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 06:05:26 2024 -0400
+
+    Merge branch 'main' of https://github.com/micpatmc/shellhacks-2024
+
+[33mcommit 256e5cb2485795bbb34ed05792634c1fd100114f[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 06:05:24 2024 -0400
+
+    Make formatting changes for background.js and content.js
+
+[33mcommit e9caedf4967883df0a5f76a7f5692002cc2857ed[m
+Merge: 406491c fa00988
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 05:50:41 2024 -0400
+
+    Merge remote-tracking branch 'refs/remotes/origin/main'
+
+[33mcommit 406491c6cb54bf8ffeb55457b6bdf1471d521ca7[m
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 05:48:32 2024 -0400
+
+    Added translation code to linguist.js
+
+[33mcommit fa009884f2186d1e3e12f40415db4b3778b2e0bc[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 05:43:15 2024 -0400
+
+    Change the text functionality to stop changing headers
+
+[33mcommit 9b554e205ca1c25eaf0d7e070ed11bb10a59337f[m
+Merge: 55176ce 85cd8f0
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 05:17:22 2024 -0400
+
+    Merge branch 'main' of https://github.com/micpatmc/shellhacks-2024
+
+[33mcommit 55176ce032ebf41d270930228e6c81e0071be2d0[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 05:17:16 2024 -0400
+
+    Alter text changing to do paragraphs instead of words
+
+[33mcommit 85cd8f05b566d55704264480ef456d0fc8b9d86f[m
+Merge: 105da5d 7911706
+Author: AlainAmbrose <alainambrose@knights.ucf.edu>
+Date:   Sat Sep 28 05:13:31 2024 -0400
+
+    added tailwind and chrome extension frontend
+
+[33mcommit 791170678f173aaa3afe32bc8b47800f4d18fa21[m
+Merge: 94404ca 14f3b5f
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 04:54:15 2024 -0400
+
+    Merge branch 'main' of https://github.com/micpatmc/shellhacks-2024
+
+[33mcommit 94404caa556aec9de4e3f9e07634e0ba6f3504b7[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 04:54:13 2024 -0400
+
+    Implement functionality to replace all words on a page
+
+[33mcommit 105da5db6e17094cb2f6012a2bba77e97f826c31[m
+Author: AlainAmbrose <alainambrose@knights.ucf.edu>
+Date:   Sat Sep 28 04:40:26 2024 -0400
+
+    added tailwind and changed hello.html
+
+[33mcommit 14f3b5ff7c93f2ab8c4937733d5defbd679aece5[m
+Author: christiandur4nt <christian.durant88@gmail.com>
+Date:   Sat Sep 28 04:40:16 2024 -0400
+
+    Initial chat gpt example code
+
+[33mcommit 0c951e0eaca5badf8f97d8ee9246484deb8871d2[m
+Author: christiandur4nt <christian.durant88@gmail.com>
+Date:   Sat Sep 28 01:10:55 2024 -0400
+
+    Initialize NPM
+
+[33mcommit e1a42a5eb13a1ae9dbf1501f6dfb3a0f901b2782[m
+Author: Michael McGarvey <71113885+MochaGamesDev@users.noreply.github.com>
+Date:   Sat Sep 28 00:12:03 2024 -0400
+
+    Add Chrome extension template
+
+[33mcommit 01dac201b37c0b6fcb3225134df9c451cba3215e[m
+Author: Ryan Weisman <ryan.weisman.512@gmail.com>
+Date:   Sat Sep 28 00:00:55 2024 -0400
+
+    >:)
+
+[33mcommit 8b56287adc8e3823c88ea124651e9edce1d59244[m
+Author: Michael McGarvey <michael@michaelmcgarvey.com>
+Date:   Fri Sep 27 23:00:02 2024 -0400
+
+    Initial commit
