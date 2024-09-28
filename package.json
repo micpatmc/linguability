@@ -19,5 +19,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "openai": "^4.65.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }
