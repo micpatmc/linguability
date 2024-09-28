@@ -8,72 +8,76 @@
   </head>
   <body class="bg-gray-700">
     <div class="p-3">
-      <div class="flex justify-center mb-2">
+      <div class="flex items-center justify-center text-center mb-2">
         <h1 class="text-3xl font-extrabold text-gray-400">LINGUABILITY</h1>
       </div>
-      <div class="flex justify-center mb-10">
-        <p class="text-lg">
-          Welcome to Linguability! Please select your language and experience
-          level.
+
+      <div class="flex items-center justify-center mb-10">
+        <p class="text-lg text-center">
+          Welcome to Linguability! Please select your language and experience level.
         </p>
       </div>
-      <h2 class="text-xl mb-2">Language</h2>
-      <div class="flex relative mb-5">
-        <div class="flex bg-green-500 rounded-lg">
-          <button
-            class="z-10 px-4 py-1 m-0.5 text-black rounded-lg hover:bg-green-400"
-            onclick="moveIndicator('beginner')"
-            id="Spanish"
-          >
-            Spanish
-          </button>
+      <div className="flex flex-col">
+        <div className="flex items-center justify-center">
+          <h2 class="text-xl mb-2">Language</h2>
+          <div class="flex mb-5 h-10 w-full">
+            <div class="flex bg-slate-400 rounded-lg w-full justify-between">
+              <button
+                class="z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
+                onclick="moveIndicator('beginner')"
+                id="Spanish"
+              >
+                Spanish
+              </button>
 
-          <button
-            class="z-10 px-4 py-1 m-0.5 ext-black rounded-lg hover:bg-green-400"
-            onclick="moveIndicator('intermediate')"
-            id="French"
-          >
-            French
-          </button>
+              <button
+                class="z-10 py-1 m-0.5 text-black rounded-lg hover:bg-green-400 w-1/2 text-center"
+                onclick="moveIndicator('intermediate')"
+                id="French"
+              >
+                French
+              </button>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-xl mb-2">Experience</h2>
+        <div class="flex relative mb-10 h-10">
+          <div class="flex bg-slate-400 rounded-lg">
+            <button
+              class="z-10 px-4 py-2 m-0.5 text-black rounded-lg hover:bg-green-400"
+              onclick="moveIndicator('beginner')"
+              id="beginner"
+            >
+              Beginner
+            </button>
+
+            <button
+              class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
+              onclick="moveIndicator('intermediate')"
+              id="intermediate"
+            >
+              Intermediate
+            </button>
+
+            <button
+              class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
+              onclick="moveIndicator('intermediate')"
+              id="advanced"
+            >
+              Advanced
+            </button>
+          </div>
         </div>
       </div>
-      <h2 class="text-xl mb-2">Experience</h2>
-      <div class="flex relative mb-10">
-        <div class="flex bg-green-500 rounded-lg">
-          <button
-            class="z-10 px-4 py-2 m-0.5 text-black rounded-lg hover:bg-green-400"
-            onclick="moveIndicator('beginner')"
-            id="beginner"
-          >
-            Beginner
-          </button>
-
-          <button
-            class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
-            onclick="moveIndicator('intermediate')"
-            id="intermediate"
-          >
-            Intermediate
-          </button>
-
-          <button
-            class="z-10 px-4 py-2 m-0.5 ext-black rounded-lg hover:bg-green-400"
-            onclick="moveIndicator('intermediate')"
-            id="advanced"
-          >
-            Advanced
-          </button>
-        </div>
+      <div class="flex w-full rounded-lg justify-center mb-10 bg-slate-400 hover:bg-green-500">
+        <button
+          class="relative z-10 px-4 py-2 text-black rounded-lg"
+          onclick="moveIndicator('intermediate')"
+          id="intermediate"
+        >
+          Get Started!
+        </button>
       </div>
-    </div>
-    <div class="flex justify-center mb-10 bg-slate-400 hover:bg-green-500">
-      <button
-        class="relative z-10 px-4 py-2 text-black rounded-lg"
-        onclick="moveIndicator('intermediate')"
-        id="intermediate"
-      >
-        Get Started!
-      </button>
     </div>
   </body>
 </html>

@@ -598,6 +598,10 @@ video {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -606,8 +610,24 @@ video {
   width: 8rem;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-full {
+  width: 100%;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .rounded-lg {
