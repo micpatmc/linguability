@@ -10,8 +10,7 @@ const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
   const sentences = splitParagraph(paragraphObj);
 
-  const apiKey =
-    "";
+  const apiKey = "Place API key here";
 
   let model_output = [];
 
@@ -73,7 +72,7 @@ const translateParagraph = async (paragraphObj) => {
 
     pickedLast = true;
   }
-  
+
   const output_paragraph = reconstructParagraph(model_output);
   return output_paragraph;
 };
@@ -154,7 +153,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   selectedLanguage = message.language;
   selectedExperience = message.difficulty;
-  
-  replaceElementsText('p');
+
+  replaceElementsText("p");
   sendResponse({ status: "Message received", data: message });
 });

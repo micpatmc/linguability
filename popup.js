@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Get references to the buttons and the Get Started button
   const languageButtons = document.querySelectorAll(
     'button[data-group="language"]'
@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   );
   const getStartedButton = document.getElementById("getStarted");
 
-  let selectedLanguage = null;
-  let selectedExperience = null;
+  let selectedLanguage = "spanish";
+  let selectedExperience = "beginner";
 
   // Event listeners for language selection
   languageButtons.forEach((button) => {
