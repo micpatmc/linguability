@@ -10,8 +10,7 @@ const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
   const sentences = splitParagraph(paragraphObj);
 
-  const apiKey =
-    "Your API Key";
+  const apiKey = "Place API key here";
 
   let model_output = [];
 
@@ -73,7 +72,7 @@ const translateParagraph = async (paragraphObj) => {
 
     pickedLast = true;
   }
-  
+
   const output_paragraph = reconstructParagraph(model_output);
   return output_paragraph;
 };
@@ -83,13 +82,18 @@ async function replaceElementsText(selector) {
   const elements = document.querySelectorAll(selector);
   for (const element of elements) {
     if (element.textContent.length >= LETTER_MINIMUM) {
-      const paragraphObj = { textContent: element.textContent, language: selectedLanguage, difficulty: selectedExperience };
+      const paragraphObj = {
+        textContent: element.textContent,
+        language: selectedLanguage,
+        difficulty: selectedExperience,
+      };
       try {
         const translatedText = await translateParagraph(paragraphObj);
         element.innerHTML = translatedText;
-        
+
         // Add event listener to each translation block
-        const translationBlocks = document.getElementsByClassName("translationBlock");
+        const translationBlocks =
+          document.getElementsByClassName("translationBlock");
         for (const transBlock of translationBlocks) {
           transBlock.addEventListener("mouseover", function () {
             transBlock.children[0].style.display = "none";
@@ -99,7 +103,7 @@ async function replaceElementsText(selector) {
             transBlock.children[0].style.display = "inline";
             transBlock.children[1].style.display = "none";
           });
-        } 
+        }
       } catch (error) {
         console.error("Translation failed:", error);
       }
@@ -116,7 +120,7 @@ async function replaceElementsText(selector) {
       transBlock.children[0].style.display = "inline";
       transBlock.children[1].style.display = "none";
     });
-  }      
+  }
 }
 
 // Function to split a paragraph into a list of sentences
@@ -142,7 +146,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   selectedLanguage = message.language;
   selectedExperience = message.difficulty;
-  
-  replaceElementsText('p');
+
+  replaceElementsText("p");
   sendResponse({ status: "Message received", data: message });
 });
