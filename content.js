@@ -1,6 +1,10 @@
 // Minimum amount of characters to be considered a paragraph
 const LETTER_MINIMUM = 200;
 
+// Parameters
+let selectedLanguage = null;
+let selectedExperience = null;
+
 // Function to translate the paragraph
 const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
@@ -67,7 +71,7 @@ async function replaceElementsText(selector) {
 
   for (const element of elements) {
     if (element.textContent.length >= LETTER_MINIMUM) {
-      const paragraphObj = { textContent: element.textContent };
+      const paragraphObj = { textContent: element.textContent, language: selectedLanguage, difficulty: selectedExperience };
       try {
         const translatedText = await translateParagraph(paragraphObj);
         element.innerHTML = translatedText;
@@ -95,5 +99,13 @@ const reconstructParagraph = (sentences) => {
   return sentences.join(" ");
 };
 
-// Run the replacement on <p> elements
-replaceElementsText("p");
+// Listener to receive information from the popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log("Message received from popup script:", message);
+
+  selectedLanguage = message.language;
+  selectedExperience = message.difficulty;
+  
+  replaceElementsText('p');
+  sendResponse({ status: "Message received", data: message });
+});
