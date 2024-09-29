@@ -14,24 +14,29 @@ const translateParagraph = async (paragraphObj) => {
     "Your API Key";
 
   let model_output = [];
-  let sentence_pairs = []
+
+  // Variable to not allow consecutive sentence translations
+  let pickedLast = false;
   for (const sentence of sentences) {
-    const chanceToTranslate = Math.random() * 7;
+    const chanceToTranslate = Math.floor(Math.random() * 7);
     const difficulty = paragraphObj.difficulty;
 
-    if (difficulty === "beginner") {
+    if (pickedLast || difficulty === "beginner") {
       if (chanceToTranslate < 6) {
         model_output.push(sentence);
+        pickedLast = false;
         continue;
       }
-    } else if (difficulty === "intermediate") {
+    } else if (pickedLast || difficulty === "intermediate") {
       if (chanceToTranslate < 4) {
         model_output.push(sentence);
+        pickedLast = false;
         continue;
       }
-    } else if (difficulty === "advanced") {
+    } else if (pickedLast || difficulty === "advanced") {
       if (chanceToTranslate < 2) {
         model_output.push(sentence);
+        pickedLast = false;
         continue;
       }
     }
@@ -58,15 +63,15 @@ const translateParagraph = async (paragraphObj) => {
     });
 
     const data = await response.json();
-    console.log(data);
     const translatedSentence = data.choices[0].message.content;
-    sentence_pairs.push({"original_sentence":sentence, "translated_paragraph":translatedSentence});
     model_output.push(`
       <p class = "translationBlock">
         <span style="color: red;">${translatedSentence}</span>
         <span style="color: blue; display: none;">${sentence}</span>
       </p>
       `);
+
+    pickedLast = true;
   }
   
   const output_paragraph = reconstructParagraph(model_output);
