@@ -13,10 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
       button.classList.remove("bg-yellow-500");
       button.classList.remove("bg-red-500");
       button.classList.remove("bg-blue-500");
-      button.classList.add("bg-slate-400");
     });
 
-    clickedButton.classList.remove("bg-slate-400");
     switch (id) {
       case "beginner":
         clickedButton.classList.add("bg-green-500");
