@@ -655,6 +655,11 @@ video {
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
+.bg-blue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -720,6 +725,18 @@ video {
 .text-slate-100 {
   --tw-text-opacity: 1;
   color: rgb(241 245 249 / var(--tw-text-opacity));
+}
+
+.outline-4 {
+  outline-width: 4px;
+}
+
+.outline-slate-50 {
+  outline-color: #f8fafc;
+}
+
+.outline-red-500 {
+  outline-color: #ef4444;
 }
 
 .hover\:bg-green-400:hover {
