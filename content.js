@@ -10,9 +10,11 @@ const translateParagraph = async (paragraphObj) => {
   // Pre-process paragraph
   const sentences = splitParagraph(paragraphObj);
 
-  const apiKey = "Place API key here";
+  const apiKey =
+    "Your API Key";
 
   let model_output = [];
+  let sentence_pairs = []
   for (const sentence of sentences) {
     const chanceToTranslate = Math.random() * 7;
     const difficulty = paragraphObj.difficulty;
@@ -58,9 +60,15 @@ const translateParagraph = async (paragraphObj) => {
     const data = await response.json();
     console.log(data);
     const translatedSentence = data.choices[0].message.content;
-    model_output.push(`<span style="color: red;">${translatedSentence}</span>`);
+    sentence_pairs.push({"original_sentence":sentence, "translated_paragraph":translatedSentence});
+    model_output.push(`
+      <p class = "translationBlock">
+        <span style="color: red;">${translatedSentence}</span>
+        <span style="color: blue; display: none;">${sentence}</span>
+      </p>
+      `);
   }
-
+  
   const output_paragraph = reconstructParagraph(model_output);
   return output_paragraph;
 };
@@ -68,7 +76,6 @@ const translateParagraph = async (paragraphObj) => {
 // Function to replace the text content of specific elements asynchronously
 async function replaceElementsText(selector) {
   const elements = document.querySelectorAll(selector);
-
   for (const element of elements) {
     if (element.textContent.length >= LETTER_MINIMUM) {
       const paragraphObj = { textContent: element.textContent, language: selectedLanguage, difficulty: selectedExperience };
@@ -80,6 +87,19 @@ async function replaceElementsText(selector) {
       }
     }
   }
+
+  // Add event listener to each translation block
+  const translationBlocks = document.getElementsByClassName("translationBlock");
+  for (const transBlock of translationBlocks) {
+    transBlock.addEventListener("mouseover", function () {
+      transBlock.children[0].style.display = "none";
+      transBlock.children[1].style.display = "inline";
+    });
+    transBlock.addEventListener("mouseout", function () {
+      transBlock.children[0].style.display = "inline";
+      transBlock.children[1].style.display = "none";
+    });
+  }      
 }
 
 // Function to split a paragraph into a list of sentences
