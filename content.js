@@ -11,7 +11,7 @@ const translateParagraph = async (paragraphObj) => {
   const sentences = splitParagraph(paragraphObj);
 
   const apiKey =
-    "Your API Key";
+    "";
 
   let model_output = [];
 
@@ -81,15 +81,30 @@ const translateParagraph = async (paragraphObj) => {
 // Function to replace the text content of specific elements asynchronously
 async function replaceElementsText(selector) {
   const elements = document.querySelectorAll(selector);
+
+  // Send message to popup.js that content is loading
+  let messageObject = {
+    isLoading: true,
+  };
+
+  chrome.runtime.sendMessage(messageObject, (response) => {
+    console.log("Response from popup:", response);
+  });
+
   for (const element of elements) {
     if (element.textContent.length >= LETTER_MINIMUM) {
-      const paragraphObj = { textContent: element.textContent, language: selectedLanguage, difficulty: selectedExperience };
+      const paragraphObj = {
+        textContent: element.textContent,
+        language: selectedLanguage,
+        difficulty: selectedExperience,
+      };
       try {
         const translatedText = await translateParagraph(paragraphObj);
         element.innerHTML = translatedText;
-        
+
         // Add event listener to each translation block
-        const translationBlocks = document.getElementsByClassName("translationBlock");
+        const translationBlocks =
+          document.getElementsByClassName("translationBlock");
         for (const transBlock of translationBlocks) {
           transBlock.addEventListener("mouseover", function () {
             transBlock.children[0].style.display = "none";
@@ -99,24 +114,21 @@ async function replaceElementsText(selector) {
             transBlock.children[0].style.display = "inline";
             transBlock.children[1].style.display = "none";
           });
-        } 
+        }
       } catch (error) {
         console.error("Translation failed:", error);
       }
     }
   }
 
-  const translationBlocks = document.getElementsByClassName("translationBlock");
-  for (const transBlock of translationBlocks) {
-    transBlock.addEventListener("mouseover", function () {
-      transBlock.children[0].style.display = "none";
-      transBlock.children[1].style.display = "inline";
-    });
-    transBlock.addEventListener("mouseout", function () {
-      transBlock.children[0].style.display = "inline";
-      transBlock.children[1].style.display = "none";
-    });
-  }      
+  // Send message to popup.js that loading is complete
+  messageObject = {
+    isLoading: false,
+  };
+
+  chrome.runtime.sendMessage(messageObject, (response) => {
+    console.log("Response from popup:", response);
+  });
 }
 
 // Function to split a paragraph into a list of sentences
