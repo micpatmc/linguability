@@ -87,13 +87,25 @@ async function replaceElementsText(selector) {
       try {
         const translatedText = await translateParagraph(paragraphObj);
         element.innerHTML = translatedText;
+        
+        // Add event listener to each translation block
+        const translationBlocks = document.getElementsByClassName("translationBlock");
+        for (const transBlock of translationBlocks) {
+          transBlock.addEventListener("mouseover", function () {
+            transBlock.children[0].style.display = "none";
+            transBlock.children[1].style.display = "inline";
+          });
+          transBlock.addEventListener("mouseout", function () {
+            transBlock.children[0].style.display = "inline";
+            transBlock.children[1].style.display = "none";
+          });
+        } 
       } catch (error) {
         console.error("Translation failed:", error);
       }
     }
   }
 
-  // Add event listener to each translation block
   const translationBlocks = document.getElementsByClassName("translationBlock");
   for (const transBlock of translationBlocks) {
     transBlock.addEventListener("mouseover", function () {
