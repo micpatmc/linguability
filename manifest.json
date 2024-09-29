@@ -9,7 +9,7 @@
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "src/hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": "language.png"
   },
   "manifest_version": 3
 }
