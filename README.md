@@ -1,5 +1,7 @@
 # The Process Behind Linguability
-[https://devpost.com/software/linguability](https://devpost.com/software/linguability)
+[Devpost](https://devpost.com/software/linguability)
+
+[Video Demo](https://www.youtube.com/watch?v=8DfAJzRVyMA)
 
 ![Linguability UI - Spanish Beginner selection](https://i.imgur.com/SJpKybS.jpeg)
 ![Linguability UI - Spanish Intermediate selection](https://i.imgur.com/niA5Mlu.jpeg)
